@@ -11,6 +11,12 @@ Function.prototype.inherits = function(parent){
     
 }
 
+Function.prototype.inherits2 = function(parent){
+    this.prototype = Object.create(parent.prototype);
+    this.prototype.constructor = this;
+}
+
+
 function MovingObject(speed) {
     this.speed = speed;
 }
@@ -24,7 +30,7 @@ MovingObject.prototype.saySpeed = function(){
 function Ship(speed) { 
     MovingObject.call(this,speed);
 }
-Ship.inherits(MovingObject);
+Ship.inherits2(MovingObject);
 
 
 // function Asteroid() { }
