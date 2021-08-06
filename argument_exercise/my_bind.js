@@ -1,10 +1,13 @@
 Function.prototype.myBind = function(context,...args){
     console.log('---------');
-    console.log(args);
-    return (...args) => {
-        console.log(context);
-        console.log(args);
-        this.apply(context,args);
+    console.log(`this is arg1: ${args}`);
+    return (...args2) => {
+        // console.log(context);
+        console.log(`this is arg2: ${args2}`);
+        let combinedArg = args.concat(args2);
+        console.log(`this is combinedArg: ${combinedArg}`);
+        console.log(this);
+        this.apply(context, combinedArg);
     }
 }
 
